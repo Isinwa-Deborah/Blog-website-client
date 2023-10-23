@@ -1,4 +1,6 @@
-export default function Post() {
+import { formatISO9075 } from "date-fns";
+
+export default function Post({ title, summary, cover, content, createdAt, author }) {
     return (
         <>
             {/* Post 1 */}
@@ -8,13 +10,14 @@ export default function Post() {
                 </div>
 
                 <div className="text">
-                    <h2>Life Lessons From Aunt Irene</h2>
-
+                    {/* <h2>Life Lessons From Aunt Irene</h2> */}
+                    <h2>{title}</h2>
                     <p className="info">
-                        <a href="#" className="author">Pam Myers</a>
-                        <time>2023-10-01  7:00</time>
+                        <a href="" className="author">{author.username}</a>
+                        <time>{formatISO9075(new Date(createdAt))}</time>
                     </p>
-                    <p className="summary">Some tried-and-true life lessons from my 104-year-old Aunt Irene may serve as a springboard to help us create successful life habits!</p>
+                    {/* <p className="summary">Some tried-and-true life lessons from my 104-year-old Aunt Irene may serve as a springboard to help us create successful life habits!</p> */}
+                    <p className="summary"> {summary}</p>
                 </div>
             </div>
 
