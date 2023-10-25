@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Post from "../Post";
-import PostOne from "../PostOne";
-import PostTwo from "../PostTwo";
+// import PostOne from "../PostOne";
+// import PostTwo from "../PostTwo";
 
 export default function HomePage() {
     const [posts, setPosts] = useState([]);
@@ -20,9 +20,9 @@ export default function HomePage() {
     useEffect(() => {
         fetch('http://localhost:4000/post')
             .then((response) => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                // if (!response.ok) {
+                //     throw new Error('Network response was not ok');
+                // }
                 return response.json();
             })
             .then((data) => {
@@ -48,6 +48,7 @@ export default function HomePage() {
         </>
     )*/
 
+    console.log(posts);
     return (
         <div>
             {error ? (
@@ -55,10 +56,12 @@ export default function HomePage() {
             ) : (
                 <div>
                     {posts.map((post) => (
-                        <Post key={post.id} {...post} />
+                        <Post posts={post} />
+
                     ))}
                 </div>
             )}
         </div>
     );
 }
+
