@@ -41,7 +41,9 @@ export default function HomePage() {
             ))}
 
             {<Post />
+            {<Post />
             <PostOne />
+            <PostTwo /> }
             <PostTwo /> }
         </>
     )*/
